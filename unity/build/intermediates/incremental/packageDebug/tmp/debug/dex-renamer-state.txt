@@ -1,0 +1,4 @@
+#Sun Feb 02 11:43:51 CST 2020
+base.0=F\:\\unity3d_study\\New Unity Project\\android\\unity\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

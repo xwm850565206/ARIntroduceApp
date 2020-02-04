@@ -1,0 +1,72 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.npucreator.unity.test" >
+4
+5    <uses-sdk
+5-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:5:5-74
+6        android:minSdkVersion="16"
+6-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:5:15-41
+7        android:targetSdkVersion="28" />
+7-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:5:42-71
+8
+9    <instrumentation
+9-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:11:5-15:75
+10        android:name="android.test.InstrumentationTestRunner"
+10-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:11:22-75
+11        android:functionalTest="false"
+11-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:14:22-52
+12        android:handleProfiling="false"
+12-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:13:22-53
+13        android:label="Tests for com.npucreator.unity.test"
+13-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:15:22-73
+14        android:targetPackage="com.npucreator.unity.test" />
+14-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:12:22-71
+15
+16    <supports-screens
+16-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-17:40
+17        android:anyDensity="true"
+17-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-34
+18        android:largeScreens="true"
+18-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-36
+19        android:normalScreens="true"
+19-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-37
+20        android:smallScreens="true"
+20-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-36
+21        android:xlargeScreens="true" />
+21-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-37
+22
+23    <application
+23-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:7:5-9:19
+24        android:banner="@drawable/app_banner"
+24-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:9-46
+25        android:debuggable="true"
+25-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:7:18-43
+26        android:isGame="true"
+26-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-30
+27        android:label="@string/app_name" >
+27-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-41
+28        <uses-library android:name="android.test.runner" />
+28-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:8:9-60
+28-->F:\android_code\ARIntroduceApp\unity\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger2329165731001698186.xml:8:23-57
+29
+30        <meta-data
+30-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:9-25:68
+31            android:name="unity.build-id"
+31-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-42
+32            android:value="469d8347-d4db-4cc4-82b6-60639dda84d7" />
+32-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-65
+33        <meta-data
+33-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:9-28:33
+34            android:name="unity.splash-mode"
+34-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:13-45
+35            android:value="0" />
+35-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-30
+36        <meta-data
+36-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:9-31:36
+37            android:name="unity.splash-enable"
+37-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-47
+38            android:value="True" />
+38-->[__tested_artifact__::unity] F:\android_code\ARIntroduceApp\unity\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-33
+39    </application>
+40
+41</manifest>

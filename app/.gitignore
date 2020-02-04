@@ -1,0 +1,9 @@
+/build
+.idea
+.gradle
+/release
+/app/build
+
+/unity/.gradle
+/unity/.idea
+/unity/build

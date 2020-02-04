@@ -1,0 +1,77 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+	package
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:3:5-35
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:1-10:12
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:2:11-69
+	android:installLocation
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:3:36-76
+supports-screens
+ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:4:3-163
+	android:largeScreens
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:4:78-105
+	android:smallScreens
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:4:21-48
+	android:normalScreens
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:4:49-77
+	android:xlargeScreens
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:4:106-134
+	android:anyDensity
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:4:135-160
+application
+ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:5:3-9:17
+	android:label
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:5:16-48
+	android:banner
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:5:71-108
+	android:isGame
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:5:49-70
+meta-data#unity.build-id
+ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:6:5-101
+	android:value
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:6:46-98
+	android:name
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:6:16-45
+meta-data#unity.splash-mode
+ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:7:5-69
+	android:value
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:7:49-66
+	android:name
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:7:16-48
+meta-data#unity.splash-enable
+ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:8:5-74
+	android:value
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:8:51-71
+	android:name
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml:8:16-50
+uses-sdk
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+		ADDED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
+		INJECTED from F:\android_code\ARIntroduceApp\unity\src\main\AndroidManifest.xml
