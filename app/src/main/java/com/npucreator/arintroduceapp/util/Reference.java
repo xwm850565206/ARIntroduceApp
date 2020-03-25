@@ -1,20 +1,68 @@
 package com.npucreator.arintroduceapp.util;
 
+import android.util.Log;
+
+import java.util.Arrays;
+
 public class Reference
 {
     public static final int SHOW = 0;
     public static final int HIDE = 1;
 
-    public static class ModelMatrix
+    public enum DetectType {
+        t111, t112, t113, t114, t115, t116,
+        t121, t122, t123, t124, t125, t126,
+        t131, t132, t133, t134;
+
+        /*t211, t212, t213, t214, t215,
+        t22,
+        t23,
+        t241, t242, t243, t244, t245, t246, t247, t248,
+
+        t30,
+        t311, t312, t313, t314, t315,
+        t321, t322, t323, t324, t325, t326, t327, t328,
+
+        t330, t331, t332, t333, t334, t335, t336, t337, t338,
+        t340, t341*/
+
+        public static DetectType getType(String typename){
+
+            typename = typename.split("/")[1]; // 输入的 typename 是 'data/' + type 的形式
+
+            if (!typename.startsWith("t"))
+                typename = 't' + typename;
+
+            DetectType[] types = DetectType.values();
+            for (DetectType type : types)
+            {
+                if (type.toString().equals(typename))
+                    return type;
+            }
+
+            return null;
+        }
+    }
+
+    /**
+     * 将1*16的float数组封装成opengl的变换矩阵，与unity中的脚本进行通讯
+     * 同时还携带当前检测到的是哪个图片信息
+     */
+    public static class DetectPacket
     {
-        public float[] matrix = new float[16];
-        public ModelMatrix(float[] matrix)
+        float[] matrix; // 变化矩阵 传回给unity进行处理
+        public DetectType detectType; // 检测到的类型
+
+        public DetectPacket(float[] matrix)
         {
             this.matrix = matrix;
-            //matrix[0] = -matrix[0];
-            //matrix[10] = -matrix[10];
+        }
+        public DetectPacket(float[] matrix, DetectType type){
+            this(matrix);
+            this.detectType = type;
         }
 
+        @Override
         public String toString()
         {
             StringBuffer sb = new StringBuffer();
@@ -24,16 +72,6 @@ public class Reference
                 sb.append(',');
             }
             sb.append(matrix[15]);
-
-            /*for (int i = 1; i <= 4; i++)
-            {
-                for (int j = 1; j <= 4; j++)
-                {
-                    sb.append(matrix[i-1+(j-1)*4]);
-                    if (!(i==4 && j == 4))
-                        sb.append(',');
-                }
-            }*/
 
             return sb.toString();
         }
@@ -61,8 +99,10 @@ public class Reference
         for (int i = 0; i < 16; i++)
             matrix[i] = i+1;
 
-        ModelMatrix matrix1 = new ModelMatrix(matrix);
+        DetectPacket packet = new DetectPacket(matrix, DetectType.t111);
 
-        System.out.println(matrix1.toString());
+        System.out.println(Arrays.asList(DetectType.values()).toString());
+
+        System.out.println(packet.toString());
     }
 }

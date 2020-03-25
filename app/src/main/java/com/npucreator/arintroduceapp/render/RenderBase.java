@@ -17,7 +17,7 @@ public class RenderBase implements GLSurfaceView.Renderer {
 
     protected BackgroundRender mBackgroundRender;
     protected ARApplicationSession vuforiaAppSession;
-    protected Vector<Texture> mTextures;
+    protected Vector<Texture> mTextures; //纹理库，已经弃用 因为引入unity
 
     @Override
     public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {

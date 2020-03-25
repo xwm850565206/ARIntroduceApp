@@ -27,27 +27,30 @@ import com.vuforia.Vuforia;
 import java.lang.ref.WeakReference;
 import java.util.Vector;
 
+
+/**
+ * 这个类用来控制和渲染我们所需要显示的小人
+ */
 public class ObjectRender extends RenderBase implements RenderControl
 {
     private static final String TAG = "ObjRender";
 
-    private final WeakReference<DetectActivity> mActivityRef;
+    private final WeakReference<DetectActivity> mActivityRef; // ar运行核心activity的引用
 
-    private int shaderProgramID;
-    private int vertexHandle;
-    private int textureCoordHandle;
-    private int mvpMatrixHandle;
-    private int texSampler2DHandle;
+    /** 这块因为引入了unity之后弃用了 **/
+    private int shaderProgramID; //渲染时采用的阴影号
+    private int vertexHandle; // 模型顶点数量
+    private int textureCoordHandle; //纹理点数量
+    private int mvpMatrixHandle; //opengl 矩阵参数
+    private int texSampler2DHandle; //opengl 的参数
 
-    //要渲染的物体，即小人
-    private MeshObject obj;
-    public Handler handler;
+    private MeshObject obj; // 要渲染的物体
+    private Handler handler; // detect activity 中的UI线程控制器的引用 用来通知UI线程更新和进一步操作
 
-    private boolean mModelIsLoaded = false;
-    private boolean mIsTargetCurrentlyTracked = false;
+    private boolean mModelIsLoaded = false; // 模型是否加载，因为引入了unity之后 这个弃用了
+    private boolean mIsTargetCurrentlyTracked = false; // 是否正在跟踪
 
-    private static float OBJECT_SCALE_FLOAT = 0.5f;//0.003f;
-
+    private static float OBJECT_SCALE_FLOAT = 0.5f;//0.003f; 要渲染物体的大小
 
     public ObjectRender(DetectActivity activity, ARApplicationSession session, Handler handler)
     {
@@ -153,12 +156,16 @@ public class ObjectRender extends RenderBase implements RenderControl
                 int textureIndex = 0;
                 modelMatrix = Tool.convertPose2GLMatrix(result.getPose());
 
-                //textureIndex = trackable.getName().equalsIgnoreCase("poker") ? 0 : 1;
+                String typename = trackable.getName();
+                Reference.DetectType type = Reference.DetectType.getType(typename); // 获取当前检测到的类型
 
-                renderModel(projectionMatrix, devicePoseMatrix.getData(), modelMatrix.getData(), textureIndex);
+                if (type != null) {
+                    //textureIndex = trackable.getName().equalsIgnoreCase("poker") ? 0 : 1;
+                    renderModel(projectionMatrix, devicePoseMatrix.getData(), modelMatrix.getData(), type);
 
-                flag = true;
-                ARUtils.checkGLError("Image Targets renderFrame");
+                    flag = true;
+                    ARUtils.checkGLError("Image Targets renderFrame");
+                }
             }
         }
 
@@ -168,7 +175,7 @@ public class ObjectRender extends RenderBase implements RenderControl
         GLES20.glDisable(GLES20.GL_DEPTH_TEST);
     }
 
-    private void renderModel(float[] projectionMatrix, float[] viewMatrix, float[] modelMatrix, int textureIndex)
+    private void renderModel(float[] projectionMatrix, float[] viewMatrix, float[] modelMatrix, Reference.DetectType type)
     {
         //MeshObject model;
         float[] modelViewProjection = new float[16];
@@ -223,7 +230,7 @@ public class ObjectRender extends RenderBase implements RenderControl
          */
         Message msg = new Message();
         msg.what = Reference.SHOW;
-        msg.obj = new Reference.ModelMatrix(modelViewProjection);
+        msg.obj = new Reference.DetectPacket(modelViewProjection, type);
         handler.sendMessage(msg);
     }
 
@@ -267,7 +274,7 @@ public class ObjectRender extends RenderBase implements RenderControl
         texSampler2DHandle = GLES20.glGetUniformLocation(shaderProgramID,
                 "texSampler2D");
 
-        if(!mModelIsLoaded)
+        if(!mModelIsLoaded) //这块基本上弃用 因为引入unity以后 不需要用java原生渲染3D模型
         {
             /** 这里设置要渲染的物体 先用方块代替**/
             obj = new CubeObject();

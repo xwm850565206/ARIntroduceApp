@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.npucreator.arintroduceapp.ARApplicationControl;
@@ -53,6 +52,7 @@ import com.vuforia.TrackerManager;
 import com.vuforia.Vec2I;
 import com.vuforia.Vuforia;
 
+import java.io.File;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -144,12 +144,12 @@ public class DetectActivity extends ARActivityBase implements ARApplicationContr
                 switch (msg.what){
                     case Reference.SHOW:
                         if (mUnityLayout != null) {
-                            Reference.ModelMatrix matrix = (Reference.ModelMatrix) msg.obj;
-                            mUnityPlayer.UnitySendMessage("Zoe_dance", "reMatrix", matrix.toString());
+                            Reference.DetectPacket packet = (Reference.DetectPacket) msg.obj;
+                            mUnityPlayer.UnitySendMessage("Zoe_dance", "reMatrix", packet.toString());
                             mUnityPlayer.UnitySendMessage("Zoe_dance", "showZoe", "");
                             if (mCanDance)
                                 mUnityPlayer.UnitySendMessage("Zoe_dance", "playDance", "");
-                            audioHelper.play();
+                            audioHelper.play(packet.detectType);
                             Log.d(TAG, "show model");
                         }
                         break;
@@ -183,11 +183,7 @@ public class DetectActivity extends ARActivityBase implements ARApplicationContr
 
         /** 这里要添加所需识别图片的xml和.png **/
 
-        mDatasetStrings.add("poker.xml");
-
-        mRuntimeImageSources.add("poker.jpg");
-
-        /*************************/
+        initDetectXMLAndPNG(mDatasetStrings, mRuntimeImageSources);
 
         vuforiaAppSession
                 .initAR(this, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -244,6 +240,23 @@ public class DetectActivity extends ARActivityBase implements ARApplicationContr
         };
 
         Log.d(TAG, "created finish");
+    }
+
+    private void initDetectXMLAndPNG(ArrayList<String> datasetStrings, ArrayList<String> runtimeImageSources)
+    {
+        Reference.DetectType[] nameList = Reference.DetectType.values();
+
+        datasetStrings.add("data/poker.xml");
+        runtimeImageSources.add("data/poker.jpg");
+        datasetStrings.add("data" + File.separator + "historyMuseum" + ".xml");
+
+        String name;
+        for (Reference.DetectType type : nameList)
+        {
+            name = type.toString();
+            name = name.substring(1); // 把第一个字母去掉
+            runtimeImageSources.add("data" + File.separator + name + ".png");
+        }
     }
 
     /**

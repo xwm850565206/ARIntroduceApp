@@ -9,13 +9,19 @@ import com.npucreator.arintroduceapp.render.RenderBase;
 import com.npucreator.unity.UnityPlayerActivity;
 
 
+/**
+ * 这个类是 AR activity的基类，用于进行权限和版本判断，以及横屏和竖屏的判断
+ */
 public class ARActivityBase extends UnityPlayerActivity
 {
+    /** 这两个对象用来调控和监听横屏和竖屏的问题 **/
     private DisplayManager.DisplayListener mDisplayListener;
     private DisplayManager mDisplayManager;
 
+    /** 记录横屏还是竖屏 **/
     private int mDeviceOrientation;
 
+    /** 这个render对象用于渲染 **/
     protected RenderBase mBaseRenderer;
 
     @Override
@@ -23,8 +29,10 @@ public class ARActivityBase extends UnityPlayerActivity
     {
         super.onCreate(savedInstanceState);
 
+        /** 判断一下运行的版本和我们所期望的版本 **/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
         {
+            /** 初始化监听横屏和竖屏 **/
             mDisplayListener = new DisplayManager.DisplayListener()
             {
                 @Override

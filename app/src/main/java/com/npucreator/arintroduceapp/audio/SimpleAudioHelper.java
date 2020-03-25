@@ -5,9 +5,12 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.AudioFormat;
 import android.media.MediaPlayer;
+import android.util.Log;
 
 import com.npucreator.arintroduceapp.R;
+import com.npucreator.arintroduceapp.util.Reference;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -20,32 +23,34 @@ public class SimpleAudioHelper implements IAudioHelper {
     AssetManager assetManager;
 
     public SimpleAudioHelper(Context context){
-
         assetManager = context.getResources().getAssets();
         mediaPlayer = new MediaPlayer();
-
-        try {
-            AssetFileDescriptor fileDescriptor = assetManager.openFd("sound/zoe_sing.wav");
-            mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getStartOffset());
-            mediaPlayer.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public void play(AssetManager assetManager, String filename) {
-
     }
 
 
     @Override
     public void play() {
         if(!mediaPlayer.isPlaying()) {
-            //mediaPlayer.reset();
             mediaPlayer.start();
         }
+    }
+
+    @Override
+    public void play(Reference.DetectType type) {
+
+        if (mediaPlayer.isPlaying())
+            return;
+
+        try {
+            AssetFileDescriptor fileDescriptor = assetManager.openFd(getFilenameFromType(type));
+            mediaPlayer.reset(); // 这里可以优化 判断是否和上次的一样，一样就不用reset了
+            mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(), fileDescriptor.getStartOffset(), fileDescriptor.getStartOffset());
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -71,5 +76,16 @@ public class SimpleAudioHelper implements IAudioHelper {
             mediaPlayer.release();
             mediaPlayer = null;
         }
+    }
+
+    @Override
+    public String getFilenameFromType(Reference.DetectType type) {
+
+        String name = type.toString();
+        name = name.substring(1);
+
+        Log.d("audiohelper", name);
+
+        return "sound" + File.separator + name + ".wav";
     }
 }
